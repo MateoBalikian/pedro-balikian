@@ -101,11 +101,19 @@ const nav = [
         </footer>
 
         <script is:inline>
-            // Scroll reveal observer — usa double rAF pra garantir que o browser paint o estado inicial antes de disparar
+            // Scroll reveal — usa CSS animations (declarativas, mais confiáveis)
             (function () {
-                if (typeof IntersectionObserver === "undefined") return;
-                let observer;
+                // Fallback: se sem IntersectionObserver, mostrar tudo
+                if (typeof IntersectionObserver === "undefined") {
+                    document
+                        .querySelectorAll(
+                            ".reveal, .reveal-scale, .reveal-left",
+                        )
+                        .forEach((el) => el.classList.add("is-visible"));
+                    return;
+                }
 
+                let observer;
                 function ensureObserver() {
                     if (observer) return observer;
                     observer = new IntersectionObserver(
@@ -118,8 +126,8 @@ const nav = [
                             });
                         },
                         {
-                            threshold: 0.12,
-                            rootMargin: "0px 0px -60px 0px",
+                            threshold: 0.05,
+                            rootMargin: "0px 0px -40px 0px",
                         },
                     );
                     return observer;
@@ -131,15 +139,32 @@ const nav = [
                     );
                     if (!els.length) return;
                     const obs = ensureObserver();
-                    // Double rAF garante que o CSS inicial pintou antes de observarmos
-                    requestAnimationFrame(() =>
-                        requestAnimationFrame(() => {
-                            els.forEach((el) => obs.observe(el));
-                        }),
-                    );
+                    els.forEach((el) => obs.observe(el));
+
+                    // Fallback de segurança: se por algum motivo o observer não disparar em 2s,
+                    // força visibilidade pra não deixar conteúdo escondido.
+                    setTimeout(() => {
+                        document
+                            .querySelectorAll(
+                                ".reveal:not(.is-visible), .reveal-scale:not(.is-visible), .reveal-left:not(.is-visible)",
+                            )
+                            .forEach((el) => {
+                                const rect = el.getBoundingClientRect();
+                                if (
+                                    rect.top < window.innerHeight &&
+                                    rect.bottom > 0
+                                ) {
+                                    el.classList.add("is-visible");
+                                }
+                            });
+                    }, 2000);
                 }
 
-                bind();
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", bind);
+                } else {
+                    bind();
+                }
                 document.addEventListener("astro:page-load", bind);
             })();
 
