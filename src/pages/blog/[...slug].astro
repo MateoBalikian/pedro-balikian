@@ -1,0 +1,152 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+    });
+---
+
+<Layout
+    title={`${post.data.title} | Pedro Balikian Jr.`}
+    description={post.data.description}
+>
+    <article class="pb-24">
+        <div class="mx-auto max-w-3xl px-6 pt-16 md:pt-24">
+            <a
+                href="/blog"
+                class="mb-8 inline-block text-sm text-[#1E40AF] hover:underline"
+            >
+                ← Voltar para o blog
+            </a>
+
+            <p
+                class="reveal mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#1E40AF]"
+            >
+                {post.data.category}
+            </p>
+
+            <h1 class="reveal reveal-delay-1 font-serif text-4xl leading-[1.1] md:text-6xl mb-6">
+                {post.data.title}
+            </h1>
+
+            <p
+                class="reveal reveal-delay-2 font-serif text-xl leading-relaxed text-black/70 mb-8 md:text-2xl"
+            >
+                {post.data.description}
+            </p>
+
+            <div
+                class="reveal reveal-delay-3 flex items-center gap-4 text-sm text-black/50 mb-12"
+            >
+                <span>Por Pedro Balikian Jr.</span>
+                <span>·</span>
+                <span>{formatDate(post.data.date)}</span>
+                {
+                    post.data.readingTime && (
+                        <>
+                            <span>·</span>
+                            <span>{post.data.readingTime}</span>
+                        </>
+                    )
+                }
+            </div>
+        </div>
+
+        {
+            post.data.cover && (
+                <div class="reveal-scale mx-auto max-w-5xl px-6 mb-16">
+                    <img
+                        src={post.data.cover}
+                        alt={post.data.title}
+                        class="w-full aspect-[16/9] object-cover rounded-lg"
+                        loading="eager"
+                    />
+                </div>
+            )
+        }
+
+        <div class="mx-auto max-w-3xl px-6">
+            <div class="article-content reveal">
+                <Content />
+            </div>
+        </div>
+    </article>
+</Layout>
+
+<style is:global>
+    .article-content {
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #1a1a1a;
+    }
+    .article-content > * + * {
+        margin-top: 1.5rem;
+    }
+    .article-content h2 {
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    .article-content h3 {
+        font-size: 1.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+    .article-content a {
+        color: #1e40af;
+        text-decoration: underline;
+    }
+    .article-content blockquote {
+        border-left: 3px solid #1e40af;
+        padding-left: 1.5rem;
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 2rem 0;
+    }
+    .article-content ul,
+    .article-content ol {
+        padding-left: 1.5rem;
+    }
+    .article-content ul {
+        list-style: disc;
+    }
+    .article-content ol {
+        list-style: decimal;
+    }
+    .article-content li + li {
+        margin-top: 0.5rem;
+    }
+    .article-content strong {
+        font-weight: 600;
+    }
+    .article-content code {
+        font-family: "Courier New", monospace;
+        background: rgba(0, 0, 0, 0.05);
+        padding: 0.1em 0.3em;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
+    .article-content img {
+        border-radius: 8px;
+        margin: 2rem 0;
+        max-width: 100%;
+        height: auto;
+    }
+</style>

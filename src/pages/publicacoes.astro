@@ -1,0 +1,201 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const publicacoes = (await getCollection("publicacoes")).sort(
+    (a, b) => b.data.year - a.data.year,
+);
+
+// Agrupar por ano
+const grupos = publicacoes.reduce(
+    (acc, pub) => {
+        const year = pub.data.year;
+        if (!acc[year]) acc[year] = [];
+        acc[year].push(pub);
+        return acc;
+    },
+    {} as Record<number, typeof publicacoes>,
+);
+
+const anos = Object.keys(grupos)
+    .map(Number)
+    .sort((a, b) => b - a);
+
+const categorias = ["Todos", "Artigo", "Livro", "Capítulo", "Patente", "Editorial"];
+
+// Converter **texto** em <strong>texto</strong> nos autores
+function renderAuthors(authors: string): string {
+    return authors.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+const totalCounts: Record<string, number> = {
+    artigos: publicacoes.filter((p) => p.data.category === "Artigo").length,
+    livros: publicacoes.filter((p) => p.data.category === "Livro").length,
+    capitulos: publicacoes.filter((p) => p.data.category === "Capítulo").length,
+    patentes: publicacoes.filter((p) => p.data.category === "Patente").length,
+    editoriais: publicacoes.filter((p) => p.data.category === "Editorial").length,
+};
+---
+
+<Layout title="Publicações | Prof. Dr. Pedro Balikian Junior">
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">PUBLICAÇÕES</p>
+        <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
+            Produção científica<br />revisada por pares.
+        </h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-black/70">
+            Artigos, livros, capítulos e patentes que documentam três décadas de pesquisa em fisiologia, metabolômica, biomecânica e inteligência artificial aplicada à saúde.
+        </p>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-12">
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]">
+                    ORCID <span class="text-[#1E40AF]">→</span>
+                </a>
+                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]">
+                    Google Scholar <span class="text-[#1E40AF]">→</span>
+                </a>
+                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]">
+                    Lattes <span class="text-[#1E40AF]">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-12 md:py-16">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-5">
+                <div>
+                    <p class="font-serif text-5xl md:text-6xl">{totalCounts.artigos}</p>
+                    <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-black/60">Artigos</p>
+                </div>
+                <div>
+                    <p class="font-serif text-5xl md:text-6xl">{totalCounts.livros}</p>
+                    <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-black/60">Livros</p>
+                </div>
+                <div>
+                    <p class="font-serif text-5xl md:text-6xl">{totalCounts.capitulos}</p>
+                    <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-black/60">Capítulos</p>
+                </div>
+                <div>
+                    <p class="font-serif text-5xl md:text-6xl">{totalCounts.patentes}</p>
+                    <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-black/60">Patentes</p>
+                </div>
+                <div>
+                    <p class="font-serif text-5xl md:text-6xl">{totalCounts.editoriais}</p>
+                    <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-black/60">Editoriais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-t border-black/5 sticky top-[73px] z-40 bg-[#FAFAF7]/95 backdrop-blur">
+        <div class="mx-auto max-w-6xl px-6 py-6">
+            <div class="flex flex-wrap gap-2" id="pubFilters">
+                {categorias.map((cat) => (
+                    <button
+                        data-category={cat}
+                        class="pub-filter-btn rounded-full border border-black/15 px-4 py-2 text-sm transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]"
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="mx-auto max-w-4xl px-6 py-12 md:py-16">
+            {anos.map((ano) => (
+                <div class="year-group mb-16" data-year={ano}>
+                    <h2 class="font-serif text-6xl md:text-7xl text-black/10 mb-6">{ano}</h2>
+                    <div class="space-y-6">
+                        {grupos[ano].map((pub) => (
+                            <div
+                                data-category={pub.data.category}
+                                class="pub-item border-t border-black/10 pt-6"
+                            >
+                                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#1E40AF] mb-3">
+                                    {pub.data.category}
+                                </span>
+                                <h3 class="font-serif text-xl md:text-2xl leading-snug mb-3">
+                                    {pub.data.title}
+                                </h3>
+                                <p class="text-sm text-black/70 mb-1" set:html={renderAuthors(pub.data.authors)} />
+                                <p class="text-sm italic text-black/60 mb-3">{pub.data.venue}</p>
+                                <div class="flex flex-wrap gap-4 text-xs text-[#1E40AF]">
+                                    {pub.data.doi && (
+                                        <a href={pub.data.doi} target="_blank" rel="noopener noreferrer" class="hover:underline">DOI →</a>
+                                    )}
+                                    {pub.data.pdfUrl && (
+                                        <a href={pub.data.pdfUrl} target="_blank" rel="noopener noreferrer" class="hover:underline">PDF →</a>
+                                    )}
+                                    <button class="citation-btn hover:underline">Citação →</button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <section class="border-t border-black/5 bg-black/[0.02]">
+        <div class="mx-auto max-w-4xl px-6 py-16 text-center">
+            <p class="mb-6 text-lg text-black/70">
+                Precisa da lista completa para citação, avaliação ou parceria?
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium hover:border-[#1E40AF]">Baixar CV (PDF)</a>
+                <a href="#" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium hover:border-[#1E40AF]">Ver no Lattes</a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const filters = document.querySelectorAll<HTMLButtonElement>(".pub-filter-btn");
+    const items = document.querySelectorAll<HTMLDivElement>(".pub-item");
+    const yearGroups = document.querySelectorAll<HTMLDivElement>(".year-group");
+
+    let activeCategory = "Todos";
+
+    function applyFilter() {
+        items.forEach((item) => {
+            const cat = item.dataset.category;
+            if (activeCategory === "Todos" || cat === activeCategory) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+        // Esconder grupos de ano vazios
+        yearGroups.forEach((group) => {
+            const visibleItems = group.querySelectorAll<HTMLDivElement>(".pub-item");
+            const hasVisible = Array.from(visibleItems).some(
+                (i) => i.style.display !== "none",
+            );
+            group.style.display = hasVisible ? "" : "none";
+        });
+        filters.forEach((btn) => {
+            if (btn.dataset.category === activeCategory) {
+                btn.classList.add("bg-[#1E40AF]", "text-white", "border-[#1E40AF]");
+                btn.classList.remove("border-black/15");
+            } else {
+                btn.classList.remove("bg-[#1E40AF]", "text-white", "border-[#1E40AF]");
+                btn.classList.add("border-black/15");
+            }
+        });
+    }
+
+    filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            activeCategory = btn.dataset.category || "Todos";
+            applyFilter();
+        });
+    });
+
+    applyFilter();
+</script>

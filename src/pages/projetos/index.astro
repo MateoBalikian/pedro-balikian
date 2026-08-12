@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const projetos = (await getCollection("projetos")).sort((a, b) => {
+    // Ordenar por status (ativos primeiro) e depois por título
+    const statusOrder: Record<string, number> = {
+        "Em desenvolvimento": 1,
+        "Ativo": 2,
+        "Em execução": 3,
+        "Concluído": 4,
+    };
+    const aOrder = statusOrder[a.data.status] ?? 99;
+    const bOrder = statusOrder[b.data.status] ?? 99;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return a.data.title.localeCompare(b.data.title);
+});
+
+const categorias = [
+    "Todos",
+    ...Array.from(new Set(projetos.map((p) => p.data.category))).sort(),
+];
+---
+
+<Layout title="Projetos | Prof. Dr. Pedro Balikian Junior">
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">PROJETOS</p>
+        <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
+            Ciência aplicada,<br />do laboratório ao impacto real.
+        </h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-black/70">
+            Cada projeto representa uma tentativa de transformar pesquisa científica em ferramenta útil — para clínicos, atletas, pesquisadores e pacientes.
+        </p>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-8 md:py-12">
+            <div class="flex flex-wrap gap-2" id="categoryFilters">
+                {categorias.map((cat) => (
+                    <button
+                        data-category={cat}
+                        class="filter-btn rounded-full border border-black/15 px-4 py-2 text-sm transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]"
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
+            <div class="grid gap-6 md:grid-cols-2" id="projectGrid">
+                {projetos.map((projeto, i) => (
+                    <a
+                        href={`/projetos/${projeto.id}`}
+                        data-category={projeto.data.category}
+                        class={`project-card reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#1E40AF] hover:shadow-lg`}
+                    >
+                        {projeto.data.cover && (
+                            <div class="img-zoom aspect-[16/10] overflow-hidden">
+                                <img src={projeto.data.cover} alt={projeto.data.title} class="h-full w-full object-cover" loading="lazy" />
+                            </div>
+                        )}
+                        <div class="flex flex-col flex-grow p-8">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-[#1E40AF]">
+                                    {projeto.data.category}
+                                </span>
+                                <span class="text-xs text-black/40">·</span>
+                                <span class="text-xs text-black/50">{projeto.data.status}</span>
+                            </div>
+                            <h2 class="font-serif text-2xl md:text-3xl leading-snug mb-4 group-hover:text-[#1E40AF] transition-colors">
+                                {projeto.data.title}
+                            </h2>
+                            <p class="text-black/70 leading-relaxed mb-6 flex-grow">
+                                {projeto.data.description}
+                            </p>
+                            <div class="flex items-center justify-between text-sm text-black/50 pt-4 border-t border-black/10">
+                                <span>{projeto.data.year}</span>
+                                <span class="text-[#1E40AF]">Ver projeto →</span>
+                            </div>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#1E40AF] text-white">
+        <div class="mx-auto max-w-4xl px-6 py-20 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl mb-4">Um projeto em mente?</h2>
+            <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">
+                Colaborações com universidades, empresas e instituições de saúde são bem-vindas.
+            </p>
+            <a href="/contato" class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-[#1E40AF] transition-opacity hover:opacity-90">
+                Propor projeto
+            </a>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const filters = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const cards = document.querySelectorAll<HTMLAnchorElement>(".project-card");
+
+    let activeCategory = "Todos";
+
+    function applyFilter() {
+        cards.forEach((card) => {
+            const cat = card.dataset.category;
+            if (activeCategory === "Todos" || cat === activeCategory) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+        filters.forEach((btn) => {
+            if (btn.dataset.category === activeCategory) {
+                btn.classList.add("bg-[#1E40AF]", "text-white", "border-[#1E40AF]");
+                btn.classList.remove("border-black/15");
+            } else {
+                btn.classList.remove("bg-[#1E40AF]", "text-white", "border-[#1E40AF]");
+                btn.classList.add("border-black/15");
+            }
+        });
+    }
+
+    filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            activeCategory = btn.dataset.category || "Todos";
+            applyFilter();
+        });
+    });
+
+    applyFilter();
+</script>

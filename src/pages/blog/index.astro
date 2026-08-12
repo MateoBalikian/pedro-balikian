@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+---
+
+<Layout title="Blog | Pedro Balikian Jr.">
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">
+            BLOG
+        </p>
+        <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
+            Ciência em linguagem humana.
+        </h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-black/70">
+            Textos sobre o que estou pesquisando, lendo e pensando. Sem
+            enrolação, sem jargão desnecessário.
+        </p>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    posts.map((post, i) => (
+                        <a
+                            href={`/blog/${post.id}`}
+                            class={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#1E40AF] hover:shadow-lg`}
+                        >
+                            {post.data.cover && (
+                                <div class="img-zoom aspect-[16/10] overflow-hidden">
+                                    <img
+                                        src={post.data.cover}
+                                        alt={post.data.title}
+                                        class="h-full w-full object-cover"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            )}
+                            <div class="flex flex-col flex-grow p-6">
+                                <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#1E40AF]">
+                                    {post.data.category}
+                                </p>
+                                <h2 class="font-serif text-2xl leading-snug mb-3 group-hover:text-[#1E40AF] transition-colors">
+                                    {post.data.title}
+                                </h2>
+                                <p class="text-sm leading-relaxed text-black/70 mb-6 flex-grow">
+                                    {post.data.description}
+                                </p>
+                                <div class="flex items-center justify-between text-xs text-black/50 pt-4 border-t border-black/10">
+                                    <span>{formatDate(post.data.date)}</span>
+                                    {post.data.readingTime && (
+                                        <span>{post.data.readingTime}</span>
+                                    )}
+                                </div>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>

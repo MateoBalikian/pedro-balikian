@@ -1,17 +1,271 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
+const researchLines = [
+    {
+        title: "Metabolômica",
+        description:
+            "Assinaturas moleculares que aproximam dados biológicos de diagnósticos preditivos.",
+        image: "/images/metabolomica.png",
+        href: "/pesquisa/metabolomica",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="10.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="10.5"/><line x1="7.5" y1="16.5" x2="10.5" y2="13.5"/><line x1="16.5" y1="16.5" x2="13.5" y2="13.5"/></svg>`,
+    },
+    {
+        title: "Biomecânica Computacional",
+        description:
+            "Movimento humano interpretado por modelagem, sensores e ciência de dados.",
+        image: "/images/bikefit.png",
+        href: "/pesquisa/biomecanica-computacional",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 8v6"/><path d="M8 20l4-6 4 6"/><path d="M8 12l4-4 4 4"/></svg>`,
+    },
+    {
+        title: "Fisiologia do Exercício",
+        description:
+            "Lactato, VO₂ e treinamento como sinais de adaptação individual.",
+        image: "/images/lactato.jpg",
+        href: "/pesquisa/fisiologia-exercicio",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>`,
+    },
+    {
+        title: "Medicina de Precisão",
+        description:
+            "Estratégias integradas para intervenções mais humanas e personalizadas.",
+        image: "/images/vo2.png",
+        href: "/pesquisa/medicina-precisao",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
+    },
+    {
+        title: "Inteligência Artificial",
+        description:
+            "Modelos clínicos e sistemas de decisão que tornam padrões invisíveis em hipóteses testáveis.",
+        image: "/images/metabolomica2.png",
+        href: "/pesquisa/inteligencia-artificial",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="6" r="1.5"/><circle cx="4" cy="18" r="1.5"/><circle cx="20" cy="12" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="12" cy="18" r="1.5"/><line x1="5.5" y1="6" x2="10.5" y2="6"/><line x1="5.5" y1="18" x2="10.5" y2="18"/><line x1="13.5" y1="6.5" x2="18.5" y2="11"/><line x1="13.5" y1="17.5" x2="18.5" y2="13"/></svg>`,
+    },
+];
+
+const recentPostsData = (await getCollection("blog"))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 3);
+
+const recentPosts = recentPostsData.map((post) => ({
+    category: post.data.category,
+    title: post.data.title,
+    description: post.data.description,
+    href: `/blog/${post.id}`,
+    image: post.data.cover || "/images/metabolomica.png",
+}));
+
+const impactNumbers = [
+    { number: "40+", label: "Publicações" },
+    { number: "18", label: "Projetos" },
+    { number: "05", label: "Patentes" },
+    { number: "30+", label: "Orientandos" },
+];
+
+const heroImage = "/images/homehero.jpeg";
+const veltronLogo = "/images/veltron_logo_completo.png";
+// Imagem do laboratório que estava no hero antes — agora usada no parallax
+const parallaxDivider =
+    "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1600&q=80&auto=format&fit=crop";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Prof. Dr. Pedro Balikian Junior">
+    <!-- HERO -->
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-24 md:pt-24 md:pb-32">
+        <div class="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16 md:items-center">
+            <div>
+                <p class="reveal mb-6 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">
+                    PESQUISADOR CIENTÍFICO BRASILEIRO
+                </p>
+                <h1 class="reveal reveal-delay-1 font-serif text-5xl leading-[1.05] md:text-7xl">
+                    Prof. Dr. Pedro Balikian Junior
+                </h1>
+                <p class="reveal reveal-delay-2 mt-6 text-base font-medium text-[#1E40AF] md:text-lg">
+                    Artificial Intelligence • Metabolomics • Computational Biomechanics • Precision Exercise Physiology
+                </p>
+                <p class="reveal reveal-delay-3 mt-8 max-w-lg text-lg leading-relaxed text-black/70">
+                    Desenvolvendo tecnologias para transformar dados biológicos em diagnósticos preditivos e decisões clínicas e esportivas de precisão.
+                </p>
+                <div class="reveal reveal-delay-4 mt-10 flex flex-wrap gap-3">
+                    <a href="/pesquisa" class="rounded-md bg-[#1E40AF] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">Pesquisa</a>
+                    <a href="/projetos" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-black/40">Projetos</a>
+                    <a href="/publicacoes" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-black/40">Publicações</a>
+                    <a href="/contato" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-black/40">Contato</a>
+                </div>
+            </div>
+            <div class="reveal-scale img-zoom relative aspect-[4/5] overflow-hidden rounded-lg bg-black/5">
+                <img
+                    src={heroImage}
+                    alt="Ambiente de laboratório científico"
+                    class="h-full w-full object-cover"
+                    loading="eager"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div class="absolute bottom-6 left-6 text-xs font-semibold tracking-widest text-white/90">
+                    LABORATÓRIO
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL-WIDTH IMAGE DIVIDER (parallax feel via bg-attachment) -->
+    <section
+        class="relative h-64 md:h-80 bg-cover bg-center bg-fixed"
+        style={`background-image: url(${parallaxDivider});`}
+    >
+        <div class="absolute inset-0 bg-[#1E40AF]/70 flex items-center justify-center px-6">
+            <p class="reveal font-serif text-2xl md:text-4xl text-white text-center max-w-3xl leading-tight">
+                "A medicina do futuro não vai tratar médias. Vai tratar pessoas."
+            </p>
+        </div>
+    </section>
+
+    <!-- LINHAS DE PESQUISA (agora com imagens) -->
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+            <div class="mb-16 md:mb-20 max-w-3xl">
+                <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">01 — LINHAS DE PESQUISA</p>
+                <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-6xl">
+                    Perguntas complexas.<br />Sistemas precisos.
+                </h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {researchLines.map((line, i) => (
+                    <a
+                        href={line.href}
+                        class={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#1E40AF] hover:shadow-lg`}
+                    >
+                        <div class="img-zoom relative aspect-[4/3] overflow-hidden">
+                            <img
+                                src={line.image}
+                                alt={line.title}
+                                class="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                            <div class="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur p-2 text-[#1E40AF]" set:html={line.icon} />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl mb-2 group-hover:text-[#1E40AF] transition-colors">
+                                {line.title}
+                            </h3>
+                            <p class="text-sm leading-relaxed text-black/70 mb-4">
+                                {line.description}
+                            </p>
+                            <p class="text-xs font-semibold uppercase tracking-widest text-[#1E40AF]">
+                                Explorar →
+                            </p>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- VELTRON FEATURED (bloco escuro com logo) -->
+    <section class="relative overflow-hidden bg-[#0A0A0A] text-white">
+        <div class="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+            <div class="grid gap-12 md:grid-cols-[1fr_1fr] md:items-center md:gap-16">
+                <div class="max-w-xl">
+                    <p class="reveal mb-6 text-xs font-semibold tracking-[0.2em] text-white/60">
+                        EMPRESA
+                    </p>
+                    <img
+                        src={veltronLogo}
+                        alt="Veltron"
+                        class="reveal reveal-delay-1 max-w-[320px] md:max-w-[440px] w-full h-auto object-contain mb-8"
+                        loading="lazy"
+                    />
+                    <p class="reveal reveal-delay-2 text-xl leading-relaxed text-white/80 mb-8">
+                        Metabolômica assistida por inteligência artificial. Uma nova geração de ferramentas para medicina de precisão.
+                    </p>
+                    <div class="reveal reveal-delay-3 flex flex-wrap gap-3">
+                        <a href="/veltron" class="rounded-md bg-white px-5 py-3 text-sm font-medium text-[#0A0A0A] transition-opacity hover:opacity-90">
+                            Conhecer a Veltron
+                        </a>
+                        <a href="/contato" class="rounded-md border border-white/40 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10">
+                            Falar com o time
+                        </a>
+                    </div>
+                </div>
+                <div class="reveal-scale img-zoom overflow-hidden rounded-lg">
+                    <img
+                        src="/images/vo2.png"
+                        alt="Análise VO₂"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEITURAS RECENTES (com imagens) -->
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+            <div class="mb-16 flex flex-col gap-4 md:mb-20 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">02 — LEITURAS RECENTES</p>
+                    <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-6xl">
+                        Pesquisa em diálogo<br />com o presente.
+                    </h2>
+                </div>
+                <a href="/blog" class="reveal reveal-delay-2 text-sm text-[#1E40AF] hover:underline">Ver todos os artigos →</a>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                {recentPosts.map((post, i) => (
+                    <a
+                        href={post.href}
+                        class={`reveal reveal-delay-${i + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#1E40AF] hover:shadow-lg`}
+                    >
+                        <div class="img-zoom aspect-[16/10] overflow-hidden">
+                            <img
+                                src={post.image}
+                                alt={post.title}
+                                class="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="flex flex-col flex-grow p-6">
+                            <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#1E40AF]">
+                                {post.category}
+                            </p>
+                            <h3 class="font-serif text-xl leading-snug mb-3 group-hover:text-[#1E40AF] transition-colors">
+                                {post.title}
+                            </h3>
+                            <p class="text-sm leading-relaxed text-black/70 mb-6 flex-grow">
+                                {post.description}
+                            </p>
+                            <p class="text-sm text-[#1E40AF]">Ler artigo →</p>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACTO EM NÚMEROS (com contador animado) -->
+    <section class="bg-[#1E40AF] text-white">
+        <div class="mx-auto max-w-6xl px-6 py-24">
+            <div class="grid items-center gap-12 md:grid-cols-[auto_1fr]">
+                <div>
+                    <p class="reveal text-xs font-semibold tracking-[0.2em] text-white/70 mb-2">
+                        IMPACTO
+                    </p>
+                    <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-5xl">
+                        Em números.
+                    </h2>
+                </div>
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                    {impactNumbers.map((item, i) => (
+                        <div class={`reveal reveal-delay-${i + 1}`}>
+                            <p class="font-serif text-6xl md:text-7xl" data-count={item.number}>0</p>
+                            <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-white/80">{item.label}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

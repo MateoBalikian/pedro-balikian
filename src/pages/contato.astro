@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contato | Prof. Dr. Pedro Balikian Junior">
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
+        <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">CONTATO</p>
+        <h1 class="reveal reveal-delay-1 font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
+            Vamos conversar.
+        </h1>
+        <p class="reveal reveal-delay-2 max-w-2xl text-lg leading-relaxed text-black/70">
+            Recebo mensagens sobre pesquisa, colaborações, palestras, orientação acadêmica, imprensa e projetos com a Veltron. Respondo pessoalmente em até 5 dias úteis.
+        </p>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <div class="grid gap-12 md:grid-cols-2 md:gap-16">
+                <div class="reveal space-y-10">
+                    <div>
+                        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">INFORMAÇÕES</p>
+                        <div class="space-y-3 text-black/80">
+                            <p><span class="text-black/50">E-mail: </span>pedro@balikian.com.br</p>
+                            <p><span class="text-black/50">Localização: </span>Maceió, Alagoas — Brasil</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">REDES ACADÊMICAS</p>
+                        <ul class="space-y-2 text-black/80">
+                            <li><a href="#" class="hover:text-[#1E40AF]">LinkedIn →</a></li>
+                            <li><a href="#" class="hover:text-[#1E40AF]">ORCID →</a></li>
+                            <li><a href="#" class="hover:text-[#1E40AF]">Google Scholar →</a></li>
+                            <li><a href="#" class="hover:text-[#1E40AF]">Lattes →</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">ASSUNTOS ESPECÍFICOS</p>
+                        <ul class="space-y-2 text-sm text-black/70">
+                            <li><span class="text-black/50">Imprensa: </span>imprensa@balikian.com.br</li>
+                            <li><span class="text-black/50">Veltron: </span>contato@veltron.ai</li>
+                            <li><span class="text-black/50">Orientação acadêmica: </span>orientacao@balikian.com.br</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-1">
+                    <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">ENVIE UMA MENSAGEM</p>
+                    <form class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="assunto">Assunto</label>
+                            <select id="assunto" name="assunto" class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors bg-white">
+                                <option>Colaboração científica</option>
+                                <option>Palestra</option>
+                                <option>Imprensa</option>
+                                <option>Orientação acadêmica</option>
+                                <option>Veltron</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="6" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <label class="flex items-start gap-3 text-sm text-black/70">
+                            <input type="checkbox" required class="mt-1" />
+                            <span>Aceito ser contatado por e-mail sobre esta mensagem.</span>
+                        </label>
+                        <button type="submit" class="w-full rounded-md bg-[#1E40AF] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">
+                            Enviar mensagem
+                        </button>
+                        <p class="text-xs text-black/50 text-center">
+                            Seus dados serão usados apenas para responder à sua mensagem.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+            <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">PERGUNTAS FREQUENTES</p>
+            <h2 class="reveal reveal-delay-1 font-serif text-3xl md:text-4xl mb-10">Antes de escrever, talvez isso ajude.</h2>
+            <div class="space-y-6">
+                <details class="border-b border-black/10 pb-6 group">
+                    <summary class="cursor-pointer font-serif text-xl group-hover:text-[#1E40AF]">Você orienta alunos externos?</summary>
+                    <p class="mt-4 text-black/70 leading-relaxed">Sim, mediante disponibilidade e alinhamento de tema. O caminho ideal é enviar uma proposta curta descrevendo interesse de pesquisa e trajetória acadêmica.</p>
+                </details>
+                <details class="border-b border-black/10 pb-6 group">
+                    <summary class="cursor-pointer font-serif text-xl group-hover:text-[#1E40AF]">Aceita convites para palestras internacionais?</summary>
+                    <p class="mt-4 text-black/70 leading-relaxed">Sim, com antecedência mínima de 90 dias. Envie detalhes do evento, público esperado e formato para o e-mail de contato.</p>
+                </details>
+                <details class="border-b border-black/10 pb-6 group">
+                    <summary class="cursor-pointer font-serif text-xl group-hover:text-[#1E40AF]">Como funcionam colaborações com empresas?</summary>
+                    <p class="mt-4 text-black/70 leading-relaxed">Colaborações são avaliadas caso a caso, com foco em projetos de pesquisa aplicada ou inovação. Envie uma descrição do escopo e objetivos.</p>
+                </details>
+                <details class="pb-6 group">
+                    <summary class="cursor-pointer font-serif text-xl group-hover:text-[#1E40AF]">A Veltron atende profissionais individuais?</summary>
+                    <p class="mt-4 text-black/70 leading-relaxed">A Veltron atende clínicas, hospitais, atletas de alto rendimento e centros de pesquisa. Para dúvidas específicas sobre serviços, entre em contato pelo e-mail da Veltron.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+</Layout>

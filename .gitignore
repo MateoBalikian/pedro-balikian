@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Assets brutos (não precisam ir pro deploy — apenas public/images/)
+02_FOTOS_MARCA/

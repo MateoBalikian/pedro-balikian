@@ -1,0 +1,177 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const heroPortrait = "/images/herosobre.jpeg";
+const trajetoriaImage = "/images/herociclismo.jpeg";
+const visaoImage = "/images/metabolomica1.png";
+---
+
+<Layout title="Sobre | Prof. Dr. Pedro Balikian Junior">
+    <!-- HERO -->
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-24 md:pt-24 md:pb-32">
+        <div class="grid gap-12 md:grid-cols-[1fr_1fr] md:gap-16 md:items-center">
+            <div>
+                <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">SOBRE</p>
+                <h1 class="reveal reveal-delay-1 font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
+                    Ciência,<br/>trajetória<br/>e visão.
+                </h1>
+                <p class="reveal reveal-delay-2 text-lg leading-relaxed text-black/70 max-w-lg">
+                    Uma vida dedicada à convergência entre fisiologia, dados e cuidado com o ser humano.
+                </p>
+            </div>
+            <div class="reveal-scale img-zoom aspect-[4/5] overflow-hidden rounded-lg bg-black/5 relative">
+                <img
+                    src={heroPortrait}
+                    alt="Retrato profissional"
+                    class="h-full w-full object-cover"
+                    loading="eager"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div class="absolute bottom-6 left-6 text-xs font-semibold tracking-widest text-white/90">
+                    MACEIÓ · BRASIL
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+            <p class="reveal font-serif text-2xl leading-relaxed text-black/80 md:text-3xl">
+                Pedro Balikian Junior é pesquisador brasileiro dedicado a integrar inteligência artificial, metabolômica, biomecânica computacional e fisiologia do exercício no desenvolvimento de tecnologias para medicina de precisão. Sua trajetória une três décadas de pesquisa acadêmica à criação de sistemas capazes de transformar dados biológicos em decisões clínicas e esportivas.
+            </p>
+        </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+            <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">01 — FORMAÇÃO</p>
+            <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-5xl mb-8">
+                Uma base construída entre a ciência e a prática.
+            </h2>
+            <div class="reveal reveal-delay-2 space-y-6 text-lg leading-relaxed text-black/80">
+                <p>
+                    A formação de Pedro atravessa educação física, fisiologia e ciências biomédicas — uma trajetória construída em universidades brasileiras e complementada por experiências internacionais. Doutorado em fisiologia do exercício, pós-doutoramento com foco em metabolômica aplicada e, mais recentemente, estudos em inteligência artificial voltados à saúde.
+                </p>
+                <p>
+                    Ao longo dos anos, o percurso acadêmico se entrelaçou com prática clínica, consultoria esportiva e atuação institucional em pesquisa translacional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMAGEM INTERSTICIAL -->
+    <section class="reveal-scale overflow-hidden">
+        <div class="mx-auto max-w-6xl px-6">
+            <div class="img-zoom overflow-hidden rounded-lg aspect-[21/9] md:aspect-[21/8]">
+                <img
+                    src={trajetoriaImage}
+                    alt="Laboratório de pesquisa"
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAJETÓRIA -->
+    <section class="border-t border-black/5 mt-16">
+        <div class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+            <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">02 — TRAJETÓRIA</p>
+            <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-5xl mb-8">
+                Da fisiologia clássica à ciência de dados.
+            </h2>
+            <div class="reveal reveal-delay-2 space-y-6 text-lg leading-relaxed text-black/80">
+                <p>
+                    A carreira começou na fisiologia do exercício — laboratório, testes ergoespirométricos, protocolos de treinamento. Nos anos 2000, a virada para a metabolômica ampliou o horizonte: entender o organismo por assinaturas moleculares, não apenas por variáveis isoladas.
+                </p>
+                <p>
+                    Na década seguinte, a integração de biomecânica computacional trouxe uma nova camada de leitura: o movimento humano como dado interpretável, modelado matematicamente, comparável entre indivíduos.
+                </p>
+                <p>
+                    Hoje, o trabalho se concentra na convergência entre essas três frentes e a inteligência artificial — desenvolvendo sistemas capazes de identificar padrões clinicamente relevantes antes que sintomas se manifestem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISÃO CIENTÍFICA - com imagem de fundo -->
+    <section class="relative overflow-hidden bg-[#0A0A0A] text-white">
+        <div class="absolute inset-0 opacity-40">
+            <img src={visaoImage} alt="" class="h-full w-full object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+        </div>
+        <div class="relative mx-auto max-w-3xl px-6 py-24 md:py-32">
+            <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-white/60">03 — VISÃO CIENTÍFICA</p>
+            <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-5xl mb-8">
+                A convergência das ciências como fronteira.
+            </h2>
+            <div class="reveal reveal-delay-2 space-y-6 text-lg leading-relaxed text-white/80">
+                <p>
+                    A ciência do próximo século não será feita de disciplinas isoladas. As descobertas mais relevantes vão emergir nas fronteiras — entre biologia e computação, entre fisiologia e engenharia, entre prática clínica e ciência de dados.
+                </p>
+                <p>
+                    Meu compromisso é contribuir para que essa convergência aconteça de forma responsável: com rigor metodológico, transparência interpretativa e foco no que realmente importa — pessoas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSÃO -->
+    <section class="border-t border-black/5 bg-black/[0.02]">
+        <div class="mx-auto max-w-3xl px-6 py-20 md:py-28">
+            <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">04 — MISSÃO</p>
+            <blockquote class="reveal reveal-delay-1 font-serif text-3xl leading-tight md:text-4xl italic text-black/80">
+                "Integrar Inteligência Artificial, metabolômica, biomecânica e fisiologia para desenvolver sistemas capazes de identificar alterações biológicas antes do aparecimento de sintomas."
+            </blockquote>
+            <p class="reveal reveal-delay-2 mt-6 text-sm text-black/60">— Pedro Balikian Junior</p>
+        </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+            <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">05 — ÁREAS DE ATUAÇÃO</p>
+            <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-5xl mb-8">
+                Onde a pesquisa acontece.
+            </h2>
+            <ol class="space-y-6 text-lg text-black/80">
+                <li class="reveal flex gap-6 border-b border-black/5 pb-6">
+                    <span class="font-serif text-2xl text-[#1E40AF] shrink-0">01</span>
+                    <span>Pesquisa acadêmica e orientação de mestrado e doutorado.</span>
+                </li>
+                <li class="reveal reveal-delay-1 flex gap-6 border-b border-black/5 pb-6">
+                    <span class="font-serif text-2xl text-[#1E40AF] shrink-0">02</span>
+                    <span>Desenvolvimento de tecnologias clínicas com aplicação real.</span>
+                </li>
+                <li class="reveal reveal-delay-2 flex gap-6 border-b border-black/5 pb-6">
+                    <span class="font-serif text-2xl text-[#1E40AF] shrink-0">03</span>
+                    <span>Consultoria científica para esporte de alto rendimento.</span>
+                </li>
+                <li class="reveal reveal-delay-3 flex gap-6 border-b border-black/5 pb-6">
+                    <span class="font-serif text-2xl text-[#1E40AF] shrink-0">04</span>
+                    <span>Inovação e transferência de tecnologia através da Veltron.</span>
+                </li>
+                <li class="reveal reveal-delay-4 flex gap-6">
+                    <span class="font-serif text-2xl text-[#1E40AF] shrink-0">05</span>
+                    <span>Divulgação científica e formação de novos pesquisadores.</span>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="bg-[#1E40AF] text-white">
+        <div class="mx-auto max-w-4xl px-6 py-20 text-center">
+            <h2 class="reveal font-serif text-4xl md:text-5xl mb-4">Vamos colaborar.</h2>
+            <p class="reveal reveal-delay-1 text-lg text-white/80 mb-8 max-w-xl mx-auto">
+                Parcerias acadêmicas, projetos clínicos e iniciativas de inovação são bem-vindos.
+            </p>
+            <div class="reveal reveal-delay-2 flex flex-wrap justify-center gap-3">
+                <a href="/projetos" class="rounded-md bg-white px-5 py-3 text-sm font-medium text-[#1E40AF] transition-opacity hover:opacity-90">Ver projetos</a>
+                <a href="/contato" class="rounded-md border border-white/40 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10">Entrar em contato</a>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,87 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const linhas = await getCollection("pesquisa");
+    return linhas.map((linha) => ({
+        params: { slug: linha.id },
+        props: { linha },
+    }));
+}
+
+const { linha } = Astro.props;
+const { Content } = await render(linha);
+
+const allLinhas = (await getCollection("pesquisa")).sort(
+    (a, b) => a.data.order - b.data.order,
+);
+const currentIndex = allLinhas.findIndex((l) => l.id === linha.id);
+const nextLinha = allLinhas[(currentIndex + 1) % allLinhas.length];
+---
+
+<Layout
+    title={`${linha.data.title} | Pesquisa`}
+    description={linha.data.description}
+>
+    {
+        linha.data.cover && (
+            <section class="relative h-[50vh] min-h-[400px] overflow-hidden">
+                <img
+                    src={linha.data.cover}
+                    alt={linha.data.title}
+                    class="absolute inset-0 h-full w-full object-cover"
+                    loading="eager"
+                />
+                <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-[#FAFAF7]" />
+                <div class="relative mx-auto max-w-4xl px-6 h-full flex flex-col justify-end pb-16">
+                    <a
+                        href="/pesquisa"
+                        class="reveal mb-8 inline-block text-sm text-white/80 hover:text-white"
+                    >
+                        ← Todas as linhas de pesquisa
+                    </a>
+                    <div class="reveal reveal-delay-1 flex items-center gap-4 mb-4">
+                        <span class="font-serif text-4xl text-white/40">
+                            {String(linha.data.order).padStart(2, "0")}
+                        </span>
+                        <div class="text-white" set:html={linha.data.icon} />
+                    </div>
+                    <h1 class="reveal reveal-delay-2 font-serif text-5xl leading-[1.05] md:text-7xl text-white mb-4">
+                        {linha.data.title}
+                    </h1>
+                    <p class="reveal reveal-delay-3 text-white/80 text-xl md:text-2xl font-medium max-w-2xl">
+                        {linha.data.subtitle}
+                    </p>
+                </div>
+            </section>
+        )
+    }
+
+    <article class="mx-auto max-w-3xl px-6 pt-8 pb-16">
+        <div class="article-content reveal">
+            <Content />
+        </div>
+    </article>
+
+    <section class="border-t border-black/5 mt-16">
+        <div class="mx-auto max-w-4xl px-6 py-16">
+            <a
+                href={`/pesquisa/${nextLinha.id}`}
+                class="reveal group block"
+            >
+                <p
+                    class="mb-2 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]"
+                >
+                    PRÓXIMA LINHA
+                </p>
+                <h2
+                    class="font-serif text-3xl md:text-4xl group-hover:text-[#1E40AF] transition-colors"
+                >
+                    {nextLinha.data.title} →
+                </h2>
+                <p class="mt-2 text-black/60">{nextLinha.data.subtitle}</p>
+            </a>
+        </div>
+    </section>
+</Layout>

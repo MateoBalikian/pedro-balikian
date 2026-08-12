@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const linhas = (await getCollection("pesquisa")).sort(
+    (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout title="Pesquisa | Prof. Dr. Pedro Balikian Junior">
+    <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">PESQUISA</p>
+        <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
+            Cinco linhas,<br />uma pergunta central.
+        </h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-black/70">
+            Minha pesquisa investiga como dados biológicos podem antecipar decisões clínicas e esportivas. Cinco linhas se entrelaçam para transformar sinais complexos em sistemas de precisão.
+        </p>
+    </section>
+
+    <section class="border-t border-black/5">
+        <div class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <div class="space-y-16 md:space-y-24">
+                {linhas.map((linha, i) => (
+                    <a href={`/pesquisa/${linha.id}`} class="group grid gap-8 md:grid-cols-[auto_1fr] md:gap-12 items-start border-t border-black/10 pt-12 first:border-t-0 first:pt-0">
+                        <div class="flex items-start gap-6">
+                            <span class="font-serif text-6xl md:text-7xl text-black/10 leading-none">
+                                {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <div class="text-[#1E40AF] mt-3" set:html={linha.data.icon} />
+                        </div>
+                        <div>
+                            <h2 class="font-serif text-3xl md:text-4xl mb-3 group-hover:text-[#1E40AF] transition-colors">
+                                {linha.data.title}
+                            </h2>
+                            <p class="text-[#1E40AF] font-medium mb-4">{linha.data.subtitle}</p>
+                            <p class="text-lg leading-relaxed text-black/70 mb-6 max-w-2xl">
+                                {linha.data.description}
+                            </p>
+                            <p class="text-sm text-[#1E40AF]">Explorar linha →</p>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#1E40AF] text-white">
+        <div class="mx-auto max-w-4xl px-6 py-20 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl mb-4">Colaboração científica.</h2>
+            <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">
+                Estou aberto a parcerias com universidades, laboratórios e centros clínicos.
+            </p>
+            <a href="/contato" class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-[#1E40AF] transition-opacity hover:opacity-90">
+                Propor colaboração
+            </a>
+        </div>
+    </section>
+</Layout>
