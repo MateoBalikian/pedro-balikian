@@ -17,6 +17,8 @@ const { Content } = await render(projeto);
 <Layout
     title={`${projeto.data.title} | Projetos`}
     description={projeto.data.description}
+    ogImage={projeto.data.cover}
+    ogType="article"
 >
     {
         projeto.data.cover && (

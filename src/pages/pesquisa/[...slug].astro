@@ -23,6 +23,8 @@ const nextLinha = allLinhas[(currentIndex + 1) % allLinhas.length];
 <Layout
     title={`${linha.data.title} | Pesquisa`}
     description={linha.data.description}
+    ogImage={linha.data.cover}
+    ogType="article"
 >
     {
         linha.data.cover && (
