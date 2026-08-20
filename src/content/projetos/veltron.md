@@ -5,7 +5,7 @@ category: "Tecnologia"
 year: "2024–presente"
 status: "Em desenvolvimento"
 location: "Maceió, Brasil"
-externalUrl: "https://veltron.ai"
+externalUrl: "https://www.veltrontech.com.br/"
 cover: "/images/metabolomica2.png"
 ---
 

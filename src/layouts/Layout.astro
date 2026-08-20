@@ -67,34 +67,38 @@ const nav = [
 
         <main><slot /></main>
 
-        <footer transition:persist class="mt-24 border-t border-black/5">
-            <div class="mx-auto max-w-6xl px-6 py-16">
-                <p class="font-serif text-3xl md:text-4xl">
-                    Pesquisa que antecipa. Ciência que aproxima.
-                </p>
-                <div
-                    class="mt-12 flex flex-col justify-between gap-6 md:flex-row md:items-end"
-                >
+        <footer transition:persist class="mt-32 bg-[#EDEDED] text-black/70">
+            <div class="mx-auto max-w-6xl px-6 py-12">
+                <!-- Linha principal -->
+                <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
                     <div>
-                        <p class="font-medium">
-                            Prof. Dr. Pedro Balikian Junior
-                        </p>
-                        <p class="mt-1 text-sm text-black/60">
-                            Inteligência Artificial · Metabolômica · Biomecânica
+                        <p class="text-sm font-semibold tracking-widest text-black">PEDRO BALIKIAN JR.</p>
+                        <p class="mt-1 text-xs text-black/50">
+                            Ciência, medicina de precisão e performance humana.
                         </p>
                     </div>
-                    <div
-                        class="flex gap-6 text-xs font-semibold tracking-widest"
-                    >
-                        <a href="#" class="text-black/70 hover:text-[#1E40AF]"
-                            >ORCID</a
-                        >
-                        <a href="#" class="text-black/70 hover:text-[#1E40AF]"
-                            >LINKEDIN</a
-                        >
-                        <a href="#" class="text-black/70 hover:text-[#1E40AF]"
-                            >SCHOLAR</a
-                        >
+
+                    <nav>
+                        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                            <li><a href="/sobre" class="text-black/70 transition-colors hover:text-[#1E40AF]">Sobre</a></li>
+                            <li><a href="/pesquisa" class="text-black/70 transition-colors hover:text-[#1E40AF]">Pesquisa</a></li>
+                            <li><a href="/blog" class="text-black/70 transition-colors hover:text-[#1E40AF]">Blog</a></li>
+                            <li><a href="/veltron" class="text-black/70 transition-colors hover:text-[#1E40AF]">Veltron</a></li>
+                            <li><a href="/contato" class="text-black/70 transition-colors hover:text-[#1E40AF]">Contato</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Divisor + linha inferior -->
+                <div class="mt-10 pt-6 border-t border-black/10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                    <p class="text-xs text-black/40">
+                        © {new Date().getFullYear()} Pedro Balikian Junior · Maceió, Brasil
+                    </p>
+                    <div class="flex gap-5 text-xs">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-black/50 hover:text-[#1E40AF] transition-colors">ORCID</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-black/50 hover:text-[#1E40AF] transition-colors">Scholar</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-black/50 hover:text-[#1E40AF] transition-colors">Lattes</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-black/50 hover:text-[#1E40AF] transition-colors">LinkedIn</a>
                     </div>
                 </div>
             </div>

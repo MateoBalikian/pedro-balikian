@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const enviado = Astro.url.searchParams.get("enviado") === "true";
 ---
 
 <Layout title="Contato | Prof. Dr. Pedro Balikian Junior">
@@ -20,7 +22,7 @@ import Layout from "../layouts/Layout.astro";
                     <div>
                         <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">INFORMAÇÕES</p>
                         <div class="space-y-3 text-black/80">
-                            <p><span class="text-black/50">E-mail: </span>pedro@balikian.com.br</p>
+                            <p><span class="text-black/50">E-mail: </span>balikianpedro@gmail.com</p>
                             <p><span class="text-black/50">Localização: </span>Maceió, Alagoas — Brasil</p>
                         </div>
                     </div>
@@ -38,50 +40,98 @@ import Layout from "../layouts/Layout.astro";
                     <div>
                         <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">ASSUNTOS ESPECÍFICOS</p>
                         <ul class="space-y-2 text-sm text-black/70">
-                            <li><span class="text-black/50">Imprensa: </span>imprensa@balikian.com.br</li>
-                            <li><span class="text-black/50">Veltron: </span>contato@veltron.ai</li>
-                            <li><span class="text-black/50">Orientação acadêmica: </span>orientacao@balikian.com.br</li>
+                            <li><span class="text-black/50">Imprensa: </span>balikianpedro@gmail.com</li>
+                            <li><span class="text-black/50">Veltron: </span>balikianpedro@gmail.com</li>
+                            <li><span class="text-black/50">Orientação acadêmica: </span>balikianpedro@gmail.com</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="reveal reveal-delay-1">
                     <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">ENVIE UMA MENSAGEM</p>
-                    <form class="space-y-5">
-                        <div>
-                            <label class="block text-sm font-medium mb-2" for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors" />
+
+                    {enviado ? (
+                        <div class="rounded-lg border border-[#1E40AF]/30 bg-[#1E40AF]/5 p-8 text-center">
+                            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1E40AF] text-white">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <h3 class="font-serif text-2xl mb-2">Mensagem enviada.</h3>
+                            <p class="text-black/70 leading-relaxed">
+                                Recebi sua mensagem e você deve ter uma confirmação no seu e-mail. Vou responder pessoalmente em até 5 dias úteis.
+                            </p>
+                            <a href="/" class="mt-6 inline-block text-sm text-[#1E40AF] hover:underline">Voltar para a home →</a>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2" for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors" />
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2" for="assunto">Assunto</label>
-                            <select id="assunto" name="assunto" class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors bg-white">
-                                <option>Colaboração científica</option>
-                                <option>Palestra</option>
-                                <option>Imprensa</option>
-                                <option>Orientação acadêmica</option>
-                                <option>Veltron</option>
-                                <option>Outro</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2" for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" name="mensagem" rows="6" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors resize-none"></textarea>
-                        </div>
-                        <label class="flex items-start gap-3 text-sm text-black/70">
-                            <input type="checkbox" required class="mt-1" />
-                            <span>Aceito ser contatado por e-mail sobre esta mensagem.</span>
-                        </label>
-                        <button type="submit" class="w-full rounded-md bg-[#1E40AF] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">
-                            Enviar mensagem
-                        </button>
-                        <p class="text-xs text-black/50 text-center">
-                            Seus dados serão usados apenas para responder à sua mensagem.
-                        </p>
-                    </form>
+                    ) : (
+                        <form
+                            action="https://formsubmit.co/balikianpedro@gmail.com"
+                            method="POST"
+                            class="space-y-5"
+                        >
+                            <!-- Configurações do FormSubmit -->
+                            <input type="hidden" name="_subject" value="Nova mensagem via pedrobalikian.com.br" />
+                            <input type="hidden" name="_template" value="table" />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_next" value="https://pedrobalikian.com.br/contato?enviado=true" />
+                            <input type="hidden" name="_autoresponse" value={`Olá,
+
+Sua mensagem foi recebida. Obrigado por entrar em contato.
+
+Respondo pessoalmente todas as mensagens em até 5 dias úteis. Se for algo urgente ou relacionado à imprensa, sinta-se à vontade para responder este e-mail marcando "URGENTE" no assunto.
+
+Enquanto aguarda, se quiser conhecer mais sobre o trabalho:
+
+• Linhas de pesquisa — pedrobalikian.com.br/pesquisa
+• Publicações — pedrobalikian.com.br/publicacoes
+• Veltron — pedrobalikian.com.br/veltron
+• Blog — pedrobalikian.com.br/blog
+
+Atenciosamente,
+
+Prof. Dr. Pedro Balikian Junior
+Pesquisador em fisiologia, metabolômica, biomecânica e inteligência artificial aplicada à saúde e ao esporte.
+
+Maceió · Brasil
+
+—
+Esta é uma resposta automática. A resposta pessoal virá em breve.`} />
+                            <!-- Honeypot anti-spam -->
+                            <input type="text" name="_honey" style="display:none" />
+
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="assunto">Assunto</label>
+                                <select id="assunto" name="assunto" class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors bg-white">
+                                    <option>Colaboração científica</option>
+                                    <option>Palestra</option>
+                                    <option>Imprensa</option>
+                                    <option>Orientação acadêmica</option>
+                                    <option>Veltron</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="mensagem">Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" rows="6" required class="w-full rounded-md border border-black/15 px-4 py-3 focus:border-[#1E40AF] focus:outline-none transition-colors resize-none"></textarea>
+                            </div>
+                            <label class="flex items-start gap-3 text-sm text-black/70">
+                                <input type="checkbox" required class="mt-1" />
+                                <span>Aceito ser contatado por e-mail sobre esta mensagem.</span>
+                            </label>
+                            <button type="submit" class="w-full rounded-md bg-[#1E40AF] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">
+                                Enviar mensagem
+                            </button>
+                            <p class="text-xs text-black/50 text-center">
+                                Seus dados serão usados apenas para responder à sua mensagem.
+                            </p>
+                        </form>
+                    )}
                 </div>
             </div>
         </div>
