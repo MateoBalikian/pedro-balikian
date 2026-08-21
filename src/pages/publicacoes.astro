@@ -39,7 +39,7 @@ const totalCounts: Record<string, number> = {
 
 <Layout title="Publicações | Prof. Dr. Pedro Balikian Junior">
     <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
-        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">PUBLICAÇÕES</p>
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#14532D]">PUBLICAÇÕES</p>
         <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
             Produção científica<br />revisada por pares.
         </h1>
@@ -51,14 +51,14 @@ const totalCounts: Record<string, number> = {
     <section class="border-t border-black/5">
         <div class="mx-auto max-w-6xl px-6 py-12">
             <div class="flex flex-wrap gap-4">
-                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]">
-                    ORCID <span class="text-[#1E40AF]">→</span>
+                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#14532D] hover:text-[#14532D]">
+                    ORCID <span class="text-[#14532D]">→</span>
                 </a>
-                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]">
-                    Google Scholar <span class="text-[#1E40AF]">→</span>
+                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#14532D] hover:text-[#14532D]">
+                    Google Scholar <span class="text-[#14532D]">→</span>
                 </a>
-                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]">
-                    Lattes <span class="text-[#1E40AF]">→</span>
+                <a href="#" class="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-[#14532D] hover:text-[#14532D]">
+                    Lattes <span class="text-[#14532D]">→</span>
                 </a>
             </div>
         </div>
@@ -97,7 +97,7 @@ const totalCounts: Record<string, number> = {
                 {categorias.map((cat) => (
                     <button
                         data-category={cat}
-                        class="pub-filter-btn rounded-full border border-black/15 px-4 py-2 text-sm transition-colors hover:border-[#1E40AF] hover:text-[#1E40AF]"
+                        class="pub-filter-btn rounded-full border border-black/15 px-4 py-2 text-sm transition-colors hover:border-[#14532D] hover:text-[#14532D]"
                     >
                         {cat}
                     </button>
@@ -117,7 +117,7 @@ const totalCounts: Record<string, number> = {
                                 data-category={pub.data.category}
                                 class="pub-item border-t border-black/10 pt-6"
                             >
-                                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#1E40AF] mb-3">
+                                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#14532D] mb-3">
                                     {pub.data.category}
                                 </span>
                                 <h3 class="font-serif text-xl md:text-2xl leading-snug mb-3">
@@ -125,7 +125,7 @@ const totalCounts: Record<string, number> = {
                                 </h3>
                                 <p class="text-sm text-black/70 mb-1" set:html={renderAuthors(pub.data.authors)} />
                                 <p class="text-sm italic text-black/60 mb-3">{pub.data.venue}</p>
-                                <div class="flex flex-wrap gap-4 text-xs text-[#1E40AF]">
+                                <div class="flex flex-wrap gap-4 text-xs text-[#14532D]">
                                     {pub.data.doi && (
                                         <a href={pub.data.doi} target="_blank" rel="noopener noreferrer" class="hover:underline">DOI →</a>
                                     )}
@@ -148,8 +148,8 @@ const totalCounts: Record<string, number> = {
                 Precisa da lista completa para citação, avaliação ou parceria?
             </p>
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="#" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium hover:border-[#1E40AF]">Baixar CV (PDF)</a>
-                <a href="#" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium hover:border-[#1E40AF]">Ver no Lattes</a>
+                <a href="#" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium hover:border-[#14532D]">Baixar CV (PDF)</a>
+                <a href="#" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium hover:border-[#14532D]">Ver no Lattes</a>
             </div>
         </div>
     </section>
@@ -181,10 +181,10 @@ const totalCounts: Record<string, number> = {
         });
         filters.forEach((btn) => {
             if (btn.dataset.category === activeCategory) {
-                btn.classList.add("bg-[#1E40AF]", "text-white", "border-[#1E40AF]");
+                btn.classList.add("bg-[#14532D]", "text-white", "border-[#14532D]");
                 btn.classList.remove("border-black/15");
             } else {
-                btn.classList.remove("bg-[#1E40AF]", "text-white", "border-[#1E40AF]");
+                btn.classList.remove("bg-[#14532D]", "text-white", "border-[#14532D]");
                 btn.classList.add("border-black/15");
             }
         });

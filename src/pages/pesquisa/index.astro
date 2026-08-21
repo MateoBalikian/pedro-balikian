@@ -9,7 +9,7 @@ const linhas = (await getCollection("pesquisa")).sort(
 
 <Layout title="Pesquisa | Prof. Dr. Pedro Balikian Junior">
     <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
-        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#1E40AF]">PESQUISA</p>
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#14532D]">PESQUISA</p>
         <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
             Cinco linhas,<br />uma pergunta central.
         </h1>
@@ -27,17 +27,17 @@ const linhas = (await getCollection("pesquisa")).sort(
                             <span class="font-serif text-6xl md:text-7xl text-black/10 leading-none">
                                 {String(i + 1).padStart(2, "0")}
                             </span>
-                            <div class="text-[#1E40AF] mt-3" set:html={linha.data.icon} />
+                            <div class="text-[#14532D] mt-3" set:html={linha.data.icon} />
                         </div>
                         <div>
-                            <h2 class="font-serif text-3xl md:text-4xl mb-3 group-hover:text-[#1E40AF] transition-colors">
+                            <h2 class="font-serif text-3xl md:text-4xl mb-3 group-hover:text-[#14532D] transition-colors">
                                 {linha.data.title}
                             </h2>
-                            <p class="text-[#1E40AF] font-medium mb-4">{linha.data.subtitle}</p>
+                            <p class="text-[#14532D] font-medium mb-4">{linha.data.subtitle}</p>
                             <p class="text-lg leading-relaxed text-black/70 mb-6 max-w-2xl">
                                 {linha.data.description}
                             </p>
-                            <p class="text-sm text-[#1E40AF]">Explorar linha →</p>
+                            <p class="text-sm text-[#14532D]">Explorar linha →</p>
                         </div>
                     </a>
                 ))}
@@ -45,13 +45,13 @@ const linhas = (await getCollection("pesquisa")).sort(
         </div>
     </section>
 
-    <section class="bg-[#1E40AF] text-white">
+    <section class="bg-[#14532D] text-white">
         <div class="mx-auto max-w-4xl px-6 py-20 text-center">
             <h2 class="font-serif text-4xl md:text-5xl mb-4">Colaboração científica.</h2>
             <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">
                 Estou aberto a parcerias com universidades, laboratórios e centros clínicos.
             </p>
-            <a href="/contato" class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-[#1E40AF] transition-opacity hover:opacity-90">
+            <a href="/contato" class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-[#14532D] transition-opacity hover:opacity-90">
                 Propor colaboração
             </a>
         </div>
