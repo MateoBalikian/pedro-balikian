@@ -16,7 +16,7 @@ const formatDate = (date: Date) =>
 
 <Layout title="Blog | Pedro Balikian Jr.">
     <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
-        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#14532D]">
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#171717]">
             BLOG
         </p>
         <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
@@ -35,7 +35,7 @@ const formatDate = (date: Date) =>
                     posts.map((post, i) => (
                         <a
                             href={`/blog/${post.id}`}
-                            class={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#14532D] hover:shadow-lg`}
+                            class={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#171717] hover:shadow-lg`}
                         >
                             {post.data.cover && (
                                 <div class="img-zoom aspect-[16/10] overflow-hidden">
@@ -48,10 +48,10 @@ const formatDate = (date: Date) =>
                                 </div>
                             )}
                             <div class="flex flex-col flex-grow p-6">
-                                <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#14532D]">
+                                <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#171717]">
                                     {post.data.category}
                                 </p>
-                                <h2 class="font-serif text-2xl leading-snug mb-3 group-hover:text-[#14532D] transition-colors">
+                                <h2 class="font-serif text-2xl leading-snug mb-3 group-hover:text-[#171717] transition-colors">
                                     {post.data.title}
                                 </h2>
                                 <p class="text-sm leading-relaxed text-black/70 mb-6 flex-grow">

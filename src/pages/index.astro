@@ -76,20 +76,20 @@ const parallaxDivider =
     <section class="mx-auto max-w-6xl px-6 pt-16 pb-24 md:pt-24 md:pb-32">
         <div class="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16 md:items-center">
             <div>
-                <p class="reveal mb-6 text-xs font-semibold tracking-[0.2em] text-[#14532D]">
+                <p class="reveal mb-6 text-xs font-semibold tracking-[0.2em] text-[#171717]">
                     PESQUISADOR CIENTÍFICO BRASILEIRO
                 </p>
                 <h1 class="reveal reveal-delay-1 font-serif text-5xl leading-[1.05] md:text-7xl">
                     Prof. Dr. Pedro Balikian Junior
                 </h1>
-                <p class="reveal reveal-delay-2 mt-6 text-base font-medium text-[#14532D] md:text-lg">
+                <p class="reveal reveal-delay-2 mt-6 text-base font-medium text-[#171717] md:text-lg">
                     Artificial Intelligence • Metabolomics • Computational Biomechanics • Precision Exercise Physiology
                 </p>
                 <p class="reveal reveal-delay-3 mt-8 max-w-lg text-lg leading-relaxed text-black/70">
                     Desenvolvendo tecnologias para transformar dados biológicos em diagnósticos preditivos e decisões clínicas e esportivas de precisão.
                 </p>
                 <div class="reveal reveal-delay-4 mt-10 flex flex-wrap gap-3">
-                    <a href="/pesquisa" class="rounded-md bg-[#14532D] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">Pesquisa</a>
+                    <a href="/pesquisa" class="rounded-md bg-[#171717] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">Pesquisa</a>
                     <a href="/projetos" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-black/40">Projetos</a>
                     <a href="/publicacoes" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-black/40">Publicações</a>
                     <a href="/contato" class="rounded-md border border-black/15 px-5 py-3 text-sm font-medium transition-colors hover:border-black/40">Contato</a>
@@ -115,7 +115,7 @@ const parallaxDivider =
         class="relative h-64 md:h-80 bg-cover bg-center bg-fixed"
         style={`background-image: url(${parallaxDivider});`}
     >
-        <div class="absolute inset-0 bg-[#14532D]/70 flex items-center justify-center px-6">
+        <div class="absolute inset-0 bg-[#171717]/70 flex items-center justify-center px-6">
             <p class="reveal font-serif text-2xl md:text-4xl text-white text-center max-w-3xl leading-tight">
                 "A medicina do futuro não vai tratar médias. Vai tratar pessoas."
             </p>
@@ -126,7 +126,7 @@ const parallaxDivider =
     <section class="border-t border-black/5">
         <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
             <div class="mb-16 md:mb-20 max-w-3xl">
-                <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#14532D]">01 — LINHAS DE PESQUISA</p>
+                <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#171717]">01 — LINHAS DE PESQUISA</p>
                 <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-6xl">
                     Perguntas complexas.<br />Sistemas precisos.
                 </h2>
@@ -135,7 +135,7 @@ const parallaxDivider =
                 {researchLines.map((line, i) => (
                     <a
                         href={line.href}
-                        class={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#14532D] hover:shadow-lg`}
+                        class={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#171717] hover:shadow-lg`}
                     >
                         <div class="img-zoom relative aspect-[4/3] overflow-hidden">
                             <img
@@ -144,16 +144,16 @@ const parallaxDivider =
                                 class="h-full w-full object-cover"
                                 loading="lazy"
                             />
-                            <div class="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur p-2 text-[#14532D]" set:html={line.icon} />
+                            <div class="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur p-2 text-[#171717]" set:html={line.icon} />
                         </div>
                         <div class="p-6">
-                            <h3 class="font-serif text-xl mb-2 group-hover:text-[#14532D] transition-colors">
+                            <h3 class="font-serif text-xl mb-2 group-hover:text-[#171717] transition-colors">
                                 {line.title}
                             </h3>
                             <p class="text-sm leading-relaxed text-black/70 mb-4">
                                 {line.description}
                             </p>
-                            <p class="text-xs font-semibold uppercase tracking-widest text-[#14532D]">
+                            <p class="text-xs font-semibold uppercase tracking-widest text-[#171717]">
                                 Explorar →
                             </p>
                         </div>
@@ -206,18 +206,18 @@ const parallaxDivider =
         <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
             <div class="mb-16 flex flex-col gap-4 md:mb-20 md:flex-row md:items-end md:justify-between">
                 <div>
-                    <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#14532D]">02 — LEITURAS RECENTES</p>
+                    <p class="reveal mb-4 text-xs font-semibold tracking-[0.2em] text-[#171717]">02 — LEITURAS RECENTES</p>
                     <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-6xl">
                         Pesquisa em diálogo<br />com o presente.
                     </h2>
                 </div>
-                <a href="/blog" class="reveal reveal-delay-2 text-sm text-[#14532D] hover:underline">Ver todos os artigos →</a>
+                <a href="/blog" class="reveal reveal-delay-2 text-sm text-[#171717] hover:underline">Ver todos os artigos →</a>
             </div>
             <div class="grid gap-6 md:grid-cols-3">
                 {recentPosts.map((post, i) => (
                     <a
                         href={post.href}
-                        class={`reveal reveal-delay-${i + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#14532D] hover:shadow-lg`}
+                        class={`reveal reveal-delay-${i + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#171717] hover:shadow-lg`}
                     >
                         <div class="img-zoom aspect-[16/10] overflow-hidden">
                             <img
@@ -228,16 +228,16 @@ const parallaxDivider =
                             />
                         </div>
                         <div class="flex flex-col flex-grow p-6">
-                            <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#14532D]">
+                            <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#171717]">
                                 {post.category}
                             </p>
-                            <h3 class="font-serif text-xl leading-snug mb-3 group-hover:text-[#14532D] transition-colors">
+                            <h3 class="font-serif text-xl leading-snug mb-3 group-hover:text-[#171717] transition-colors">
                                 {post.title}
                             </h3>
                             <p class="text-sm leading-relaxed text-black/70 mb-6 flex-grow">
                                 {post.description}
                             </p>
-                            <p class="text-sm text-[#14532D]">Ler artigo →</p>
+                            <p class="text-sm text-[#171717]">Ler artigo →</p>
                         </div>
                     </a>
                 ))}
@@ -246,7 +246,7 @@ const parallaxDivider =
     </section>
 
     <!-- IMPACTO EM NÚMEROS (com contador animado) -->
-    <section class="bg-[#14532D] text-white">
+    <section class="bg-[#171717] text-white">
         <div class="mx-auto max-w-6xl px-6 py-24">
             <div class="grid items-center gap-12 md:grid-cols-[auto_1fr]">
                 <div>

@@ -24,7 +24,7 @@ const categorias = [
 
 <Layout title="Projetos | Prof. Dr. Pedro Balikian Junior">
     <section class="mx-auto max-w-6xl px-6 pt-16 pb-16 md:pt-24">
-        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#14532D]">PROJETOS</p>
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-[#171717]">PROJETOS</p>
         <h1 class="font-serif text-5xl leading-[1.05] md:text-7xl mb-6">
             Ciência aplicada,<br />do laboratório ao impacto real.
         </h1>
@@ -39,7 +39,7 @@ const categorias = [
                 {categorias.map((cat) => (
                     <button
                         data-category={cat}
-                        class="filter-btn rounded-full border border-black/15 px-4 py-2 text-sm transition-colors hover:border-[#14532D] hover:text-[#14532D]"
+                        class="filter-btn rounded-full border border-black/15 px-4 py-2 text-sm transition-colors hover:border-[#171717] hover:text-[#171717]"
                     >
                         {cat}
                     </button>
@@ -55,7 +55,7 @@ const categorias = [
                     <a
                         href={`/projetos/${projeto.id}`}
                         data-category={projeto.data.category}
-                        class={`project-card reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#14532D] hover:shadow-lg`}
+                        class={`project-card reveal reveal-delay-${(i % 3) + 1} group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white transition-all hover:border-[#171717] hover:shadow-lg`}
                     >
                         {projeto.data.cover && (
                             <div class="img-zoom aspect-[16/10] overflow-hidden">
@@ -64,13 +64,13 @@ const categorias = [
                         )}
                         <div class="flex flex-col flex-grow p-8">
                             <div class="flex items-center gap-3 mb-6">
-                                <span class="text-xs font-semibold uppercase tracking-widest text-[#14532D]">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-[#171717]">
                                     {projeto.data.category}
                                 </span>
                                 <span class="text-xs text-black/40">·</span>
                                 <span class="text-xs text-black/50">{projeto.data.status}</span>
                             </div>
-                            <h2 class="font-serif text-2xl md:text-3xl leading-snug mb-4 group-hover:text-[#14532D] transition-colors">
+                            <h2 class="font-serif text-2xl md:text-3xl leading-snug mb-4 group-hover:text-[#171717] transition-colors">
                                 {projeto.data.title}
                             </h2>
                             <p class="text-black/70 leading-relaxed mb-6 flex-grow">
@@ -78,7 +78,7 @@ const categorias = [
                             </p>
                             <div class="flex items-center justify-between text-sm text-black/50 pt-4 border-t border-black/10">
                                 <span>{projeto.data.year}</span>
-                                <span class="text-[#14532D]">Ver projeto →</span>
+                                <span class="text-[#171717]">Ver projeto →</span>
                             </div>
                         </div>
                     </a>
@@ -87,13 +87,13 @@ const categorias = [
         </div>
     </section>
 
-    <section class="bg-[#14532D] text-white">
+    <section class="bg-[#171717] text-white">
         <div class="mx-auto max-w-4xl px-6 py-20 text-center">
             <h2 class="font-serif text-4xl md:text-5xl mb-4">Um projeto em mente?</h2>
             <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">
                 Colaborações com universidades, empresas e instituições de saúde são bem-vindas.
             </p>
-            <a href="/contato" class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-[#14532D] transition-opacity hover:opacity-90">
+            <a href="/contato" class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-[#171717] transition-opacity hover:opacity-90">
                 Propor projeto
             </a>
         </div>
@@ -117,10 +117,10 @@ const categorias = [
         });
         filters.forEach((btn) => {
             if (btn.dataset.category === activeCategory) {
-                btn.classList.add("bg-[#14532D]", "text-white", "border-[#14532D]");
+                btn.classList.add("bg-[#171717]", "text-white", "border-[#171717]");
                 btn.classList.remove("border-black/15");
             } else {
-                btn.classList.remove("bg-[#14532D]", "text-white", "border-[#14532D]");
+                btn.classList.remove("bg-[#171717]", "text-white", "border-[#171717]");
                 btn.classList.add("border-black/15");
             }
         });
