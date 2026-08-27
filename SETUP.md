@@ -30,12 +30,14 @@ Conferir depois: `node -v` (>= 22.12), `git --version`, `gh --version`.
 
 ## 2. Identidade do git como Pedro
 
-Sem isso os commits saem no nome errado:
-
 ```
 git config --global user.name "Pedro Balikian"
-git config --global user.email "<email-do-pedro>"
+git config --global user.email "<email-da-conta-balikianpedro-cloud>"
 ```
+
+O email **tem que ser exatamente o email cadastrado na conta do GitHub dele**.
+A protecao do `master` exige aprovacao extra para commits que o GitHub nao
+consegue associar a uma conta — email errado faz todo PR dele emperrar.
 
 ## 3. Login no GitHub como Pedro
 
