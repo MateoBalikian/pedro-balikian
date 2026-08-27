@@ -52,13 +52,44 @@ Conferir: `gh auth status` deve mostrar `balikianpedro-cloud`.
 
 ## 4. Clonar o repositório
 
+**Tem que ser `git clone`.** Baixar o ZIP pelo botao "Download ZIP" do GitHub
+nao funciona: a pasta vem sem conexao com o repositorio, entao nao da pra criar
+branch nem abrir PR. Se ja existir uma pasta baixada por ZIP na maquina, apague.
+
 ```
 git clone https://github.com/MateoBalikian/pedro-balikian.git
 cd pedro-balikian
 npm install
 ```
 
-## 5. Testar
+## 5. Conferir se ficou tudo certo
+
+Rodar os quatro, dentro da pasta `pedro-balikian`:
+
+```
+git remote -v
+```
+Tem que mostrar `github.com/MateoBalikian/pedro-balikian`. Se der erro dizendo
+que nao e um repositorio, a pasta veio de ZIP — volte ao passo 4.
+
+```
+node -v
+```
+Tem que ser 22.12 ou maior.
+
+```
+git log --oneline -1
+```
+Tem que mostrar um commit. Confirma que o historico veio junto.
+
+```
+head -1 CLAUDE.md
+```
+Tem que aparecer `# Site do Pedro Balikian`. Se o arquivo estiver vazio ou so
+com a palavra `AGENTS.md`, o Claude vai comecar sem nenhuma instrucao e o fluxo
+de PR nao vai ser seguido — nesse caso me avise.
+
+## 6. Testar o site
 
 ```
 npm run dev
@@ -66,13 +97,13 @@ npm run dev
 
 Abrir `http://localhost:4321` — o site deve aparecer. `Ctrl+C` encerra.
 
-## 6. Claude Code
+## 7. Claude Code
 
 Instalar, fazer login na conta Claude e abrir o Claude **dentro da pasta
 `pedro-balikian`**. Ele lê o `CLAUDE.md` sozinho e já começa sabendo o fluxo
 (branch → mostrar no localhost → aprovação do Pedro → PR → Mateo publica).
 
-## 7. Atalho pro Pedro
+## 8. Atalho pro Pedro
 
 Deixar um atalho na área de trabalho que abra o terminal já dentro da pasta do
 projeto com o Claude rodando. Assim ele clica em um ícone e já está conversando.
