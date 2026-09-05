@@ -4,7 +4,7 @@ description: "Uma pergunta de pesquisador sobre o eixo intestino-cérebro, as de
 category: "Sinais do Corpo · Ciclismo"
 date: 2026-09-05
 readingTime: "6 min de leitura"
-cover: "/images/metabolomica1.png"
+cover: "/images/blog/vuelta-intestino-e-queda.jpg"
 ---
 
 Ontem eu escrevi que não dá para explicar a queda de Tadej Pogačar na oitava etapa da Vuelta. Continuo dizendo. Mas há uma pergunta que eu carrego desde o Tour de France, e que a Vuelta tornou mais urgente.

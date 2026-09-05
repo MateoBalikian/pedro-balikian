@@ -4,7 +4,7 @@ description: "A prova começou em Mônaco há duas semanas e só agora se decide
 category: "Sinais do Corpo · Ciclismo"
 date: 2026-09-03
 readingTime: "5 min de leitura"
-cover: "/images/herociclismo.jpeg"
+cover: "/images/blog/vuelta-terceira-semana.jpg"
 ---
 
 Quem está acompanhando a Vuelta a España viu: a prova saiu de Mônaco no dia 22 de agosto, atravessou França, Andorra e Espanha, e só agora, na terceira semana, é que a classificação geral começa a se decidir de verdade. Isso acontece todo ano, em toda grande volta. Não é coincidência nem roteiro de televisão. É fisiologia.

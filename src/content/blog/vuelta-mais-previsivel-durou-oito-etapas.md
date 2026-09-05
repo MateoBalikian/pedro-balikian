@@ -4,7 +4,7 @@ description: "Antes da largada, era difícil imaginar outro vencedor. Uma pedra 
 category: "Sinais do Corpo · Ciclismo"
 date: 2026-09-04
 readingTime: "5 min de leitura"
-cover: "/images/bikefit.png"
+cover: "/images/blog/vuelta-mais-previsivel-durou-oito-etapas.jpg"
 ---
 
 Antes da largada em Mônaco, as prévias diziam a mesma coisa: era difícil imaginar outro vencedor que não Tadej Pogačar. Ele vinha de um quinto Tour de France, não perdia uma corrida por etapas havia mais de três anos, e a Vuelta seria só o carimbo que faltava na coleção das três grandes voltas. Uma prova previsível. Para muita gente, até menos interessante por isso.
