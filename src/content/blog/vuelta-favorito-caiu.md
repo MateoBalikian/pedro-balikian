@@ -4,7 +4,7 @@ description: "Um Grand Tour não premia o maior pico. Premia quem perde menos ao
 category: "Sinais do Corpo · Ciclismo"
 date: 2026-09-06
 readingTime: "4 min de leitura"
-cover: "/images/wingate.png"
+cover: "/images/blog/vuelta-favorito-caiu.jpg"
 ---
 
 Tadej Pogačar chegou à Vuelta como o grande favorito e abandonou após uma queda na oitava etapa. Enric Mas assumiu a camisa vermelha, e a prova, que parecia decidida, virou uma prova de verdade.

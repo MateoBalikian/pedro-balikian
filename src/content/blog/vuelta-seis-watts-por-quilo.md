@@ -4,7 +4,7 @@ description: "Watts por quilo diz quanto você produz. Não diz a que custo. É 
 category: "Sinais do Corpo · Ciclismo"
 date: 2026-09-07
 readingTime: "5 min de leitura"
-cover: "/images/limiarlactato.png"
+cover: "/images/blog/vuelta-seis-watts-por-quilo.jpg"
 ---
 
 Toda transmissão de subida agora mostra o mesmo número: "6,2 W/kg por 20 minutos". Virou o número mágico do ciclismo, repetido por comentaristas, por aplicativos de treino e por quem pedala no fim de semana. E ele engana mais do que ajuda.
