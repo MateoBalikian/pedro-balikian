@@ -1,5 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const whatsappPrograma =
+    "https://wa.me/5582999652230?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20Programa%20de%20Acompanhamento%20Semestral%20da%20Veltron.";
+
+const inclusos = [
+    "Teste de Lactato + Zonas de treino",
+    "Análise Biomecânica Computacional",
+    "Perfil Metabolômico Salivar (11 marcadores)",
+    "Reavaliações: 2 biomecânicas + 1 de lactato e zonas",
+];
+
+const programas = [
+    { esporte: "TRIATLO", nome: "Veltron Tri Pro 6M", de: "R$ 1.690", por: "1.490" },
+    { esporte: "CICLISMO", nome: "Veltron Bike Pro 6M", de: "R$ 1.590", por: "1.390" },
+    { esporte: "CORRIDA", nome: "Veltron Run Pro 6M", de: "R$ 1.590", por: "1.390" },
+    { esporte: "NATAÇÃO", nome: "Veltron Swim Pro 6M", de: "R$ 1.590", por: "1.390" },
+];
+
+const packs = [
+    { pct: "10%", nome: "Pack Dupla", texto: "2 atletas: 10% de desconto para ambos." },
+    { pct: "15%", nome: "Pack Equipe", texto: "3 a 5 atletas: 15% de desconto + Teste de Lactato (ou Análise Biomecânica extra) cortesia para o coach." },
+    { pct: "20%", nome: "Pack Pelotão", texto: "6 ou mais atletas: 20% de desconto + relatório consolidado para a equipe." },
+];
 ---
 
 <Layout title="Veltron | Prof. Dr. Pedro Balikian Junior">
@@ -14,6 +37,73 @@ import Layout from "../layouts/Layout.astro";
         <p class="reveal reveal-delay-2 max-w-2xl font-serif text-xl leading-relaxed text-black/70 md:text-2xl">
             Metabolômica assistida por inteligência artificial. Uma nova geração de ferramentas para medicina de precisão.
         </p>
+    </section>
+
+    <section id="programa" class="border-t border-black/5 bg-[#0A0A0A] text-white">
+        <div class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+                <p class="reveal text-xs font-semibold tracking-[0.2em] text-white/60">PROGRAMA DE ACOMPANHAMENTO SEMESTRAL</p>
+                <span class="reveal rounded-full border border-white/40 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.12em] text-white/90">CONDIÇÃO DE LANÇAMENTO · MACEIÓ/AL · VAGAS LIMITADAS</span>
+            </div>
+            <h2 class="reveal reveal-delay-1 font-serif text-4xl leading-tight md:text-6xl mb-4">Seis meses de evolução medida.</h2>
+            <p class="reveal reveal-delay-2 max-w-2xl text-lg leading-relaxed text-white/75 mb-12">
+                A evolução da sua performance monitorada mês a mês com alta tecnologia. Um programa para cada modalidade, com a mesma base de avaliações e três reavaliações ao longo do semestre.
+            </p>
+
+            <div class="grid gap-6 md:grid-cols-2">
+                {programas.map((prog) => (
+                    <div class="reveal rounded-lg bg-white p-8 text-[#0A0A0A]">
+                        <p class="mb-2 text-xs font-semibold tracking-[0.2em] text-black/50">{prog.esporte}</p>
+                        <h3 class="font-serif text-2xl md:text-3xl mb-5">{prog.nome}</h3>
+                        <ul class="space-y-2 text-sm leading-relaxed text-black/75 mb-6">
+                            {inclusos.map((item) => (
+                                <li class="flex gap-3"><span class="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#0A0A0A]"></span><span>{item}</span></li>
+                            ))}
+                        </ul>
+                        <div class="border-t border-black/10 pt-5">
+                            <span class="text-sm text-black/45 line-through">de {prog.de}</span>
+                            <p class="font-serif text-4xl md:text-5xl leading-none mt-1"><span class="text-xl align-top mr-1">R$</span>{prog.por}</p>
+                            <p class="mt-2 text-sm font-medium text-black/60">ou em até 6x sem juros</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="mt-6 grid gap-6 md:grid-cols-[0.9fr_1.4fr]">
+                <div class="reveal rounded-lg border border-white/25 p-8">
+                    <p class="mb-3 text-xs font-semibold tracking-[0.2em] text-white/60">UPGRADE DISPONÍVEL</p>
+                    <p class="text-sm leading-relaxed text-white/80">
+                        Troque o perfil salivar pelo <strong class="text-white">Perfil Metabolômico Urinário (100 marcadores)</strong> no início do ciclo.
+                    </p>
+                    <p class="mt-4 font-serif text-3xl">R$ 1.970 <span class="font-sans text-sm text-white/60">em até 6x</span></p>
+                </div>
+                <div class="reveal rounded-lg border border-white/25 p-8">
+                    <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-white/60">VANTAGENS PARA ASSESSORIAS E GRUPOS</p>
+                    <ul class="space-y-4">
+                        {packs.map((pack) => (
+                            <li class="grid grid-cols-[4.5rem_1fr] items-baseline gap-4">
+                                <span class="font-serif text-3xl text-right">{pack.pct}</span>
+                                <span class="text-sm leading-relaxed text-white/80"><strong class="text-white">{pack.nome}.</strong> {pack.texto}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reveal mt-10 flex flex-wrap items-center justify-between gap-6 rounded-lg bg-white p-8 text-[#0A0A0A]">
+                <div>
+                    <p class="font-serif text-2xl md:text-3xl">Garanta sua vaga no ciclo semestral.</p>
+                    <p class="mt-1 text-sm text-black/60">Vagas limitadas · WhatsApp (82) 99965-2230</p>
+                </div>
+                <a href={whatsappPrograma} target="_blank" rel="noopener noreferrer" class="rounded-md bg-[#0A0A0A] px-6 py-4 text-sm font-medium text-white transition-opacity hover:opacity-90">
+                    Agendar pelo WhatsApp
+                </a>
+            </div>
+
+            <p class="mt-6 text-xs leading-relaxed text-white/45">
+                A metabolômica apoia a avaliação integrada e não estabelece, isoladamente, diagnóstico clínico ou previsão individual de lesões.
+            </p>
+        </div>
     </section>
 
     <section class="border-t border-black/5">
