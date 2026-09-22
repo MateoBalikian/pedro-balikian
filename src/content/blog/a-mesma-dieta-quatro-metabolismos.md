@@ -49,6 +49,8 @@ Na Veltron, a metabolômica é uma das três camadas da avaliação, ao lado da 
 
 É importante dizer também o que não fazemos. A Veltron não prescreve dieta. Esse é o trabalho do nutricionista, e o tratamento de qualquer doença é trabalho do médico. O que entregamos é o dado que falta a esses profissionais: uma leitura objetiva de como aquele organismo está respondendo, para que a conduta deixe de ser a da média e passe a ser a daquela pessoa.
 
+Na Veltron, essa ponte com a nutrição é feita pelo nutricionista Jean Marcos da Silva, com quem também divido a autoria de um estudo sobre cafeína e desempenho no ciclismo, publicado em 2024. Quem já tem o seu nutricionista continua com ele: o laudo é feito para ser levado a quem acompanha você.
+
 A metabolômica apoia a avaliação integrada e não estabelece, isoladamente, diagnóstico clínico.
 
 ## A pergunta que fica
@@ -66,3 +68,4 @@ A mesma dieta, quatro metabolismos. A pergunta útil nunca foi qual é a melhor 
 - Bauer J, Biolo G, Cederholm T, et al. Evidence-based recommendations for optimal dietary protein intake in older people: a position paper from the PROT-AGE Study Group. *J Am Med Dir Assoc*, 2013.
 - Morton RW, Murphy KT, McKellar SR, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. *Br J Sports Med*, 2018.
 - Greendale GA, Sternfeld B, Huang M, et al. Changes in body composition and weight during the menopause transition. *JCI Insight*, 2019.
+- Sousa FAB, Marinho AH, Bastos-Silva VJ, Araujo GG, Ataide-Silva T, Silva JM, Brandão VFN, Jatobá SG, Balikian Júnior P. Caffeine mouth rinse plus ingestion improves the 10-km time trial compared to caffeine mouth rinse alone. *Res Q Exerc Sport*, 2024.
