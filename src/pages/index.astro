@@ -3,45 +3,45 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const researchLines = [
-    {
-        title: "Metabolômica",
-        description:
-            "Assinaturas moleculares que aproximam dados biológicos de diagnósticos preditivos.",
-        image: "/images/metabolomica.png",
-        href: "/pesquisa/metabolomica",
-        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="10.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="10.5"/><line x1="7.5" y1="16.5" x2="10.5" y2="13.5"/><line x1="16.5" y1="16.5" x2="13.5" y2="13.5"/></svg>`,
-    },
-    {
-        title: "Biomecânica Computacional",
-        description:
-            "Movimento humano interpretado por modelagem, sensores e ciência de dados.",
-        image: "/images/bikefit.png",
-        href: "/pesquisa/biomecanica-computacional",
-        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 8v6"/><path d="M8 20l4-6 4 6"/><path d="M8 12l4-4 4 4"/></svg>`,
-    },
-    {
+{
         title: "Fisiologia do Exercício",
         description:
-            "Lactato, VO₂ e treinamento como sinais de adaptação individual.",
+            "Limiares, lactato e VO₂: a medida do esforço que cada corpo sustenta, e o ponto em que ele muda de regime.",
         image: "/images/lactato.jpg",
         href: "/pesquisa/fisiologia-exercicio",
         icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>`,
     },
-    {
-        title: "Medicina de Precisão",
+{
+        title: "Biomecânica Computacional",
         description:
-            "Estratégias integradas para intervenções mais humanas e personalizadas.",
-        image: "/images/vo2.png",
-        href: "/pesquisa/medicina-precisao",
-        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
+            "O gesto filmado e medido quadro a quadro, para ver onde a técnica cede quando a fadiga chega.",
+        image: "/images/bikefit.png",
+        href: "/pesquisa/biomecanica-computacional",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 8v6"/><path d="M8 20l4-6 4 6"/><path d="M8 12l4-4 4 4"/></svg>`,
     },
-    {
+{
         title: "Inteligência Artificial",
         description:
-            "Modelos clínicos e sistemas de decisão que tornam padrões invisíveis em hipóteses testáveis.",
+            "Modelos que cruzam fisiologia e movimento em tempo real e transformam dados dispersos em decisão de treino.",
         image: "/images/metabolomica2.png",
         href: "/pesquisa/inteligencia-artificial",
         icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="6" r="1.5"/><circle cx="4" cy="18" r="1.5"/><circle cx="20" cy="12" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="12" cy="18" r="1.5"/><line x1="5.5" y1="6" x2="10.5" y2="6"/><line x1="5.5" y1="18" x2="10.5" y2="18"/><line x1="13.5" y1="6.5" x2="18.5" y2="11"/><line x1="13.5" y1="17.5" x2="18.5" y2="13"/></svg>`,
+    },
+{
+        title: "Metabolômica",
+        description:
+            "Assinaturas moleculares que explicam recuperação, inflamação e o que o esforço cobra por dentro.",
+        image: "/images/metabolomica.png",
+        href: "/pesquisa/metabolomica",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="10.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="10.5"/><line x1="7.5" y1="16.5" x2="10.5" y2="13.5"/><line x1="16.5" y1="16.5" x2="13.5" y2="13.5"/></svg>`,
+    },
+{
+        title: "Medicina de Precisão",
+        description:
+            "A convergência das três camadas num só plano: o que medir, o que ajustar e por quê.",
+        image: "/images/vo2.png",
+        href: "/pesquisa/medicina-precisao",
+        icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
     },
 ];
 
@@ -83,10 +83,10 @@ const parallaxDivider =
                     Prof. Dr. Pedro Balikian Junior
                 </h1>
                 <p class="reveal reveal-delay-2 mt-6 text-base font-medium text-[#171717] md:text-lg">
-                    Artificial Intelligence • Metabolomics • Computational Biomechanics • Precision Exercise Physiology
+                    Precision Exercise Physiology • Computational Biomechanics • Artificial Intelligence
                 </p>
                 <p class="reveal reveal-delay-3 mt-8 max-w-lg text-lg leading-relaxed text-black/70">
-                    Desenvolvendo tecnologias para transformar dados biológicos em diagnósticos preditivos e decisões clínicas e esportivas de precisão.
+                    Trinta anos medindo limiares, fadiga e movimento humano. Hoje, fisiologia do exercício e biomecânica computacional convergem com inteligência artificial para transformar esforço medido em decisão de treino.
                 </p>
                 <div class="reveal reveal-delay-4 mt-10 flex flex-wrap gap-3">
                     <a href="/pesquisa" class="rounded-md bg-[#171717] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90">Pesquisa</a>
@@ -178,7 +178,7 @@ const parallaxDivider =
                         loading="lazy"
                     />
                     <p class="reveal reveal-delay-2 text-xl leading-relaxed text-white/80 mb-8">
-                        Metabolômica assistida por inteligência artificial. Uma nova geração de ferramentas para medicina de precisão.
+                        Fisiologia do exercício e biomecânica computacional lidas por inteligência artificial. Limiares medidos, movimento filmado e metabolismo, na mesma avaliação.
                     </p>
                     <p class="reveal reveal-delay-2 mb-8 text-sm text-white/60">
                         Atendimento aberto para agendamento pelo WhatsApp.
