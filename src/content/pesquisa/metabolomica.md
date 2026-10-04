@@ -1,8 +1,8 @@
 ---
 title: "Metabolômica"
 subtitle: "Assinaturas moleculares do estado biológico."
-description: "Assinaturas moleculares que aproximam dados biológicos de diagnósticos preditivos."
-order: 1
+description: "Assinaturas moleculares que explicam recuperação, inflamação e o que o esforço cobra por dentro."
+order: 4
 icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="10.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="10.5"/><line x1="7.5" y1="16.5" x2="10.5" y2="13.5"/><line x1="16.5" y1="16.5" x2="13.5" y2="13.5"/></svg>'
 cover: "/images/metabolomica1.png"
 ---

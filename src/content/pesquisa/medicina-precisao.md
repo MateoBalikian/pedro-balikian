@@ -1,8 +1,8 @@
 ---
 title: "Medicina de Precisão"
 subtitle: "Decisões clínicas guiadas por dados individuais."
-description: "Estratégias integradas para intervenções mais humanas e personalizadas."
-order: 4
+description: "A convergência das três camadas num só plano: o que medir, o que ajustar e por quê."
+order: 5
 icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>'
 cover: "/images/vo2.png"
 ---
